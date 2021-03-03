@@ -1,5 +1,9 @@
 syntax = "proto3";
 
+option go_package = "hello-grpc-go/proto";
+
+package hello_grpc_go;
+
 service Greeter {
   rpc SayHello (Request) returns (Reply) {}
 }
