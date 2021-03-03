@@ -9,6 +9,12 @@ minimal example of gRPC in Go.
 
 ## Usage
 
+### Compile proto file
+
+```bash
+sh compile_proto.sh
+```
+
 ### Run Server
 
 ```bash
