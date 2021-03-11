@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 	"hello-grpc-go/proto"
 	"log"
 	"net"
@@ -33,6 +34,7 @@ func main() {
 	// setup gRPC server
 	s := grpc.NewServer()
 	proto.RegisterGreeterServer(s, &Server{})
+	reflection.Register(s)
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
