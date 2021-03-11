@@ -7,24 +7,27 @@ minimal example of gRPC in Go.
 * [Go 1.16](https://golang.org/)
 * [protoc](https://developers.google.com/protocol-buffers)
 
-## Usage
 
-### Compile proto file
+## Compile proto file
 
 ```bash
-sh compile_proto.sh
+./compile_proto.sh
 ```
 
-### Run Server
+## Build
+
+### Server
 
 ```bash
-go run server.go
+cd server
+go build
 ```
 
-### Run Client
+### Client
 
 ```bash
-go run client.go
+cd server
+go build
 ```
 
 ## Useful Tools
