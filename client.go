@@ -2,15 +2,15 @@ package main
 
 import (
 	"context"
+	"google.golang.org/grpc"
+	"hello-grpc-go/proto"
 	"log"
 	"os"
 	"time"
-	"google.golang.org/grpc"
-	pb "hello-grpc-go/proto"
 )
 
 const (
-	address = "localhost:50051"
+	address     = "localhost:50051"
 	defaultName = "world"
 )
 
@@ -21,7 +21,7 @@ func main() {
 		log.Fatalf("did not connect: %v", err)
 	}
 	defer conn.Close()
-	c := pb.NewGreeterClient(conn)
+	c := proto.NewGreeterClient(conn)
 
 	// input user name
 	name := defaultName
@@ -32,7 +32,7 @@ func main() {
 	// contact the server and print out its response
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.SayHello(ctx, &pb.Request{Name: name})
+	r, err := c.SayHello(ctx, &proto.Request{Name: name})
 	if err != nil {
 		log.Fatalf("cound not greet: %v", err)
 	}
